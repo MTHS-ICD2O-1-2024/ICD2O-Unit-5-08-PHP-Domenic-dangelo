@@ -30,27 +30,26 @@
       <div class="right-image">
         <img src="./images/multiplication_chart.jpeg" alt="multiplication chart" />
       </div>
-      <form action="answer.php" method="GET">
-        <p>Enter number to multiple with the second number:</p>
-        <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" name="firstNumber" id="firstNumber" />
-          <label class="mdl-textfield__label" for="firstNumber">Number...</label>
-          <span class="mdl-textfield__error">Input is not a number!</span>
+      <div class="page-content-php">
+        <div id="user-info">
+          <?php
+          //input
+          $firstUserInput = $_GET["firstNumber"];
+          $secondUserInput = $_GET["secondNumber"];
+          $answer = 0;
+
+          // Process
+          while ($firstUserInput >= 1) {
+            $answer = $answer + $secondUserInput;
+            $firstUserInput--;
+          }
+          // output
+          echo "Your number is: " . $answer;
+          ?>
+          <div class="page-content-answer">
+            <a href="./index.php">Return</a>
+          </div>
         </div>
-        <br />
-        <p>Enter number to multiple with the first number:</p>
-        <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" name="secondNumber" id="secondNumber" />
-          <label class="mdl-textfield__label" for="secondNumber">Number...</label>
-          <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-        <br />
-        <!-- Accent-colored raised button with ripple -->
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-          type="submit">
-          Calculate
-        </button>
-      </form>
     </main>
   </div>
 </body>
