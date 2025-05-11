@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- ICS2O-Unit5-06-HTML-MDL -->
+<!-- ICS2O-Unit5-08-HTML-MDL -->
 <html lang="en-ca">
 
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="Multiplying with while loops, with PHP" />
+  <meta name="description" content="Dividing with while loops, with PHP" />
   <meta name="keywords" content="mths, icd2o" />
   <meta name="author" content="domenic dangelo" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +15,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="manifest" href="site.webmanifest" />
-  <title>Multiplying with while loops, with PHP</title>
+  <title>Dividing with while loops, with PHP</title>
 </head>
 
 <body>
@@ -23,12 +23,12 @@
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Multiplying with while loops, with PHP</span>
+        <span class="mdl-layout-title">Dividing with while loops, with PHP</span>
       </div>
     </header>
     <main class="mdl-layout__content">
       <div class="right-image">
-        <img src="./images/multiplication_chart.jpeg" alt="multiplication chart" />
+        <img src="./images/Division-6.webp" alt="long division" />
       </div>
       <div class="page-content-php">
         <div id="user-info">
@@ -36,15 +36,19 @@
           //input
           $firstUserInput = $_GET["firstNumber"];
           $secondUserInput = $_GET["secondNumber"];
-          $answer = 0;
+          $number = 0;
+          $answer = $firstUserInput;
 
           // Process
-          while ($firstUserInput >= 1) {
-            $answer = $answer + $secondUserInput;
-            $firstUserInput--;
+          while (true) {
+            $number++;
+            $firstUserInput = $firstUserInput - $secondUserInput;
+            if ($firstUserInput < $secondUserInput) {
+              break;
+            }
           }
           // output
-          echo "Your number is: " . $answer;
+          echo "$answer ÷ $secondUserInput = $number + R $firstUserInput";
           ?>
           <div class="page-content-answer">
             <a href="./index.php">Return</a>
